@@ -1,6 +1,6 @@
-# ForMyLove · Cloudflare Pages 部署指南
+# ToMyBeloved · Cloudflare Pages 部署指南
 
-> 本指南将带你使用 Cloudflare Pages 将 ForMyLove 静态告白页上线，覆盖 GitHub 仓库自动部署与 Direct Upload 两种方式。所有步骤均以简体中文撰写，并保留 Cloudflare 控制台中的英文按钮/字段名，方便对照操作。
+> 本指南将带你使用 Cloudflare Pages 将 ToMyBeloved 静态告白页上线，覆盖 GitHub 仓库自动部署与 Direct Upload 两种方式。所有步骤均以简体中文撰写，并保留 Cloudflare 控制台中的英文按钮/字段名，方便对照操作。
 
 ## 1. 项目概览与部署前检查
 
@@ -28,7 +28,7 @@
 
 ### 2.1 前置条件
 1. 一个可用的 Cloudflare 账户（已登录 dashboard）。
-2. 一个 GitHub 账户，并 Fork 本仓库到自己的命名空间，例如 `github.com/<your-name>/ForMyLove`。
+2. 一个 GitHub 账户，并 Fork 本仓库到自己的命名空间，例如 `github.com/<your-name>/ToMyBeloved`。
 3. 可选：在本地 `git clone` 该 Fork 并进行个性化内容修改，推送到 `main` 分支。
 
 ### 2.2 在 Cloudflare Pages 创建项目
@@ -40,7 +40,7 @@
 
    | 字段 (Cloudflare UI)  | 推荐值          | 说明 |
    | --------------------- | --------------- | ---- |
-   | **Project name**      | 自定义（如 `formylove`） | 影响 `*.pages.dev` 域名 |
+   | **Project name**      | 自定义（如 `tomybeloved`） | 影响 `*.pages.dev` 域名 |
    | **Production branch** | `main`          | 保持默认即可 |
    | **Framework preset**  | `None`          | 纯静态站点，无框架优化 |
    | **Build command**     | （留空）        | 无需构建步骤 |
@@ -102,4 +102,4 @@
 - **互动触发动画与音乐**：页面交互依赖点击信封；如直接刷新页面后未点击将不会播放音乐或显示信件内容，属于正常行为。
 - **个性化配置**：文字与署名由 `assets/js/script.js` 中的 `config` 对象控制，修改后提交或重新打包即可在 Pages 上生效。
 
-按照以上任一方法操作，即可在 Cloudflare Pages 上快速、稳定地发布 ForMyLove 表白网页 🎉。
+按照以上任一方法操作，即可在 Cloudflare Pages 上快速、稳定地发布 ToMyBeloved 表白网页 🎉。
