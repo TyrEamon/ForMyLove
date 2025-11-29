@@ -37,7 +37,7 @@
 
                 <section class="message-panel" aria-live="polite">
                     <button id="random-message-btn" class="heart-button" type="button">
-                        <span aria-hidden="true">💗</span> 点击抽取一条情话
+                        <span aria-hidden="true">💗</span> 我的一些话
                     </button>
                     <p id="random-message-display" class="message-display"></p>
                 </section>
@@ -54,13 +54,18 @@
                     <p id="date"></p>
                 </div>
 
-                <button type="button" id="secret-heart" class="secret-heart" aria-label="点开隐藏的心意">♡</button>
-                <div id="secret-message" class="secret-message" aria-hidden="true">
-                    <!-- 小彩蛋的文字由 config.secretMessage 控制 -->
-                </div>
             </div>
         </section>
     </main>
+
+    <div class="secret-easter-egg" aria-live="polite">
+        <div id="secret-message" class="secret-message" aria-hidden="true">
+            <p class="secret-message-title">悄悄话</p>
+            <p id="secret-message-text"></p>
+            <!-- 小彩蛋文字可在 assets/js/script.js 的 config.secretMessage 中修改 -->
+        </div>
+        <button type="button" id="secret-heart" class="secret-heart" aria-label="点开隐藏的心意" aria-expanded="false">♡</button>
+    </div>
 
     <div id="particles" aria-hidden="true"></div>
 
