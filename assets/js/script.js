@@ -31,7 +31,7 @@ const config = {
         "只要你需要，我随叫随到。"
     ],
 
-// 小彩蛋区域：点击信纸角落的小心心即可显示
+// 小彩蛋区域：点击右下角的小心心即可显示隐藏留言，可在 config.secretMessage 中任意替换文字
     
     secretMessage: "没别的，就是想和你在这个不完美的世界里，建一个小小的、温暖的家。"
 };
@@ -51,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const randomDisplay = document.getElementById('random-message-display');
     const secretHeart = document.getElementById('secret-heart');
     const secretMessage = document.getElementById('secret-message');
+    const secretMessageText = document.getElementById('secret-message-text');
     const particlesContainer = document.getElementById('particles');
 
     let isOpened = false;
@@ -60,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nicknameEl) nicknameEl.innerText = config.nickname;
     if (signatureEl) signatureEl.innerText = config.signature;
     if (dateEl) dateEl.innerText = config.date;
-    if (secretMessage) secretMessage.textContent = config.secretMessage;
+    if (secretMessageText) secretMessageText.textContent = config.secretMessage;
 
     populateTimeline();
     updateDayCount();
@@ -123,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const toggleSecret = () => {
             const active = secretMessage.classList.toggle('active');
             secretMessage.setAttribute('aria-hidden', String(!active));
+            secretHeart.setAttribute('aria-expanded', String(active));
         };
         secretHeart.addEventListener('click', toggleSecret);
         secretHeart.addEventListener('keydown', (event) => {

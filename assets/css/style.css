@@ -17,6 +17,8 @@
     --text-primary: #5c3d4f;
     --text-secondary: #7a5367;
     --shadow-soft: 0 25px 45px rgba(92, 61, 79, 0.18);
+    --font-heading: 'LongCang', 'Ma Shan Zheng', 'Zhi Mang Xing', 'STKaiti', 'KaiTi', 'Songti SC', serif;
+    --font-body: 'Songti SC', 'Noto Serif SC', 'Source Han Serif SC', 'STSong', 'SimSun', serif;
 }
 
 * {
@@ -27,7 +29,7 @@
 
 body {
     min-height: 100vh;
-    font-family: 'PingFang SC', 'Noto Sans SC', 'Source Han Sans SC', 'Microsoft YaHei', sans-serif;
+    font-family: var(--font-body);
     background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.8), transparent 45%),
                 radial-gradient(circle at 20% 80%, rgba(255, 193, 218, 0.6), transparent 40%),
                 linear-gradient(135deg, #fff0f5, #ffd9e8 60%, #ffeef5);
@@ -129,7 +131,7 @@ body::after {
     text-align: center;
     font-size: 1.2rem;
     letter-spacing: 1px;
-    font-family: 'LongCang', 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+    font-family: var(--font-heading);
     color: #b14d6d;
     z-index: 3;
 }
@@ -194,7 +196,7 @@ body::after {
 
 .letter-header h2 {
     font-size: 2.1rem;
-    font-family: 'LongCang', 'STKaiti', 'KaiTi', 'Noto Serif SC', serif;
+    font-family: var(--font-heading);
     color: var(--pink-deep);
     letter-spacing: 1px;
 }
@@ -228,6 +230,7 @@ body::after {
     white-space: pre-wrap;
     min-height: 180px;
     margin-bottom: 8px;
+    font-family: var(--font-body);
 }
 
 .cursor {
@@ -297,6 +300,7 @@ body::after {
     font-size: 1.3rem;
     color: var(--pink-deep);
     margin-bottom: 16px;
+    font-family: var(--font-heading);
 }
 
 .timeline-list {
@@ -363,43 +367,71 @@ body::after {
     color: var(--text-primary);
 }
 
+#signature {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: var(--pink-deep);
+}
+
+.secret-easter-egg {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 25;
+}
+
 .secret-heart {
-    position: absolute;
-    bottom: 12px;
-    left: 18px;
-    background: transparent;
-    border: none;
-    font-size: 1.3rem;
-    color: rgba(246, 196, 83, 0.6);
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(244, 143, 177, 0.6);
+    border-radius: 999px;
+    font-size: 1rem;
+    color: var(--pink-deep);
     cursor: pointer;
-    opacity: 0.4;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0.65;
+    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
+    padding: 6px 14px;
+    box-shadow: 0 6px 18px rgba(244, 143, 177, 0.25);
 }
 
 .secret-heart:hover,
 .secret-heart:focus-visible {
-    opacity: 0.9;
-    transform: scale(1.15);
+    opacity: 1;
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .secret-message {
-    margin-top: 16px;
-    padding: 16px 18px;
+    position: absolute;
+    bottom: 48px;
+    right: 0;
+    margin: 0;
+    padding: 16px 20px;
     border-radius: 18px;
     border: 1px dashed rgba(246, 196, 83, 0.6);
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
     color: var(--text-secondary);
     line-height: 1.7;
     opacity: 0;
     transform: translateY(8px);
     transition: opacity 0.4s ease, transform 0.4s ease;
     pointer-events: none;
+    max-width: min(320px, 80vw);
+    width: max-content;
+    box-shadow: var(--shadow-soft);
 }
 
 .secret-message.active {
     opacity: 1;
     transform: translateY(0);
-    pointer-events: all;
+    pointer-events: auto;
+}
+
+.secret-message-title {
+    font-family: var(--font-heading);
+    color: var(--pink-deep);
+    margin-bottom: 6px;
 }
 
 /* Floating hearts */
@@ -460,5 +492,15 @@ body::after {
     .timeline,
     .signature-area {
         margin-top: 24px;
+    }
+
+    .secret-easter-egg {
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .secret-message {
+        max-width: calc(100vw - 32px);
+        bottom: 56px;
     }
 }
